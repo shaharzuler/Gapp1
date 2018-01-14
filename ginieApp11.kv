@@ -1,0 +1,354 @@
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+# File name: ginieApp11.py
+#:kivy 1.9.0
+
+
+
+
+ScreenManagement:
+	
+	transition: FadeTransition()
+		
+	MainScreen: 
+	AnotherScreen:
+	WaitScreen: 
+
+
+	
+#:import Factory kivy.factory.Factory
+<MyPopup_main@Popup>:
+	size_hint: 0.85,0.7
+	#auto_dismiss: False
+	title: 'Charge me!'
+	GridLayout:
+		cols:3
+		rows:3
+		Button:
+			id: sp1
+			text: 'charge container1'
+			on_release: root.charge_fun( self )
+			color: 0,1,0,1
+			background_color: 0,1,1,1
+		
+		
+		Label:
+			background_color: 0,0,0,0		
+
+		Button:
+			id: cup4
+			text: 'charge container4'
+			on_release:root.charge_fun( self )
+			color: 0,1,0,1
+			background_color: 1,0,0.05,1
+		
+		
+		Button:
+			id: sp2
+			text: 'charge container2'
+			on_release: root.charge_fun( self )
+			color: 0,1,0,1
+			background_color: 0,1,1,1
+		
+		Label:
+			background_color: 0,0,0,0
+		
+		Button:
+			id: cup5
+			text: 'charge container5'
+			on_release: root.charge_fun( self )
+			color: 0,1,0,1
+			background_color: 1,0,0.05,1
+		
+		
+		Button:
+			id: sp3
+			text: 'charge container3'
+			on_release: root.charge_fun( self )
+			color: 0,1,0,1
+			background_color: 0,1,1,1
+		
+		
+		Label:
+			background_color: 0,0,0,0
+
+		Button:
+			id: cup6
+			text: 'charge container6'
+			on_release: root.charge_fun( self )
+			color: 0,1,0,1
+			background_color: 1,0,0.05,1
+		
+
+
+<MyPopup_qin@Popup>:
+	size_hint: 0.85,0.7
+	#auto_dismiss: False
+	title: 'Charge me!'
+	GridLayout:
+		cols:5
+		rows:3
+		Button:
+			id: sp1
+			text: 'charge container1'
+			on_release: root.charge_fun( self )
+			color: 0,1,0,1
+			background_color: 0,1,1,1
+		Button:
+			id: u_sp1
+			text: 'use container1'
+			on_release: root.use_fun( self )
+			color: 1,0,1,1
+			background_color: 0,1,1,1
+		
+		Label:
+			background_color: 0,0,0,0		
+
+		Button:
+			id: cup4
+			text: 'charge container4'
+			on_release:root.charge_fun( self )
+			color: 0,1,0,1
+			background_color: 1,0,0.05,1
+		Button:
+			id: u_cup4
+			text: 'use container4'
+			on_release:root.use_fun( self )
+			color: 1,0,1,1
+			background_color: 1,0,0.05,1
+		
+		Button:
+			id: sp2
+			text: 'charge container2'
+			on_release: root.charge_fun( self )
+			color: 0,1,0,1
+			background_color: 0,1,1,1
+		Button:
+			id: u_sp2
+			text: 'use container2'
+			on_release: root.use_fun( self )
+			color: 1,0,1,1
+			background_color: 0,1,1,1
+		
+		Label:
+			background_color: 0,0,0,0
+		
+		Button:
+			id: cup5
+			text: 'charge container5'
+			on_release: root.charge_fun( self )
+			color: 0,1,0,1
+			background_color: 1,0,0.05,1
+		Button:
+			id: u_cup5
+			text: 'use container5'
+			on_release: root.use_fun( self )
+			color: 1,0,1,1
+			background_color: 1,0,0.05,1
+		
+		Button:
+			id: sp3
+			text: 'charge container3'
+			on_release: root.charge_fun( self )
+			color: 0,1,0,1
+			background_color: 0,1,1,1
+		Button:
+			id: u_sp3
+			text: 'use container3'
+			on_release: root.use_fun( self )
+			color: 1,0,1,1
+			background_color: 0,1,1,1
+		
+		Label:
+			background_color: 0,0,0,0
+
+		Button:
+			id: cup6
+			text: 'charge container6'
+			on_release: root.charge_fun( self )
+			color: 0,1,0,1
+			background_color: 1,0,0.05,1
+		Button:
+			id: u_cup6
+			text: 'use container6'
+			on_release: root.use_fun( self )
+			color: 1,0,1,1
+			background_color: 1,0,0.05,1
+
+
+
+
+<MainScreen>:
+
+	name: "main"
+	Button:
+		#CHARGE GINIE WITH FOOD OPENS POPUP WINDOW
+		color: 1,0,1,1
+		font_size: 25
+		size_hint: 0.3,0.1
+		text: "Add something"
+		on_release: Factory.MyPopup_main().open()
+		pos_hint: {"left":0.70, "top":0.99}
+
+	ScrollView:
+		size: self.size
+		pos: 0,-60
+		GridLayout:
+			id: layout_content
+			size_hint_y: None
+			cols: 2
+			height: 850
+			spacing: 10, 10
+			padding: 10, 10
+			scroll_type:  "bars", "content"
+			bar_pos_y: "left"
+			
+
+			
+			Button:
+				on_release: 
+					app.root.current = "Qinoa"
+					
+				canvas.before:
+					Rectangle:
+						source: 'qin.png'
+						pos: self.pos
+						size: self.size
+				text: "Qinoa Salad"
+				font_size: 40
+				color: 0,1,0,1
+				background_color: 0,0,0,0
+
+			Button:
+				text: "Guacamole"
+				font_size: 40
+				color: 0,1,0,1
+
+			Button:
+				text: "Veggie burger"
+				font_size: 40
+				color: 0,1,0,1
+
+			Button:
+				text: "Tomato Soup"
+				font_size: 40
+				color: 0,1,0,1
+
+			Button:
+				text: "Rice with tofu"
+				font_size: 40
+				color: 0,1,0,1
+
+			Button:
+				text: "Surprise!"
+				color: 1,0.8,0,1
+				font_size: 40
+
+
+<AnotherScreen>:
+	
+	name: "Qinoa"
+	id: qin11
+	FloatLayout:
+		
+		id: qin22
+		ScrollView:
+			
+			id: qin33
+			#pos_hint: {'x': 0.14, "y": -0.45}
+			pos: 0,-100
+			ScatterLayout:
+				
+				id: layout_content3
+				size_hint_y: None
+				cols: 4
+				height: 1000
+				spacing: 10, 10
+				padding: 10, 10	
+				size_x: 700
+
+				TextInput:
+					id: new_num 
+					font_size: 25
+					size_hint: 0.06,0.07
+					pos_hint : {"x":root.my_pos_x, "top":root.my_pos_y-(root.num_rows*0.07)}
+					input_filter: 'int'
+				TextInput:
+					id: new_unit
+					font_size: 25
+					size_hint: 0.2,0.07
+					pos_hint : {"x":root.my_pos_x+0.1, "top":root.my_pos_y-(root.num_rows*0.07)}
+				TextInput:
+					id: new_ing
+					font_size: 25
+					size_hint: 0.2,0.07
+					pos_hint : {"x":root.my_pos_x+0.3, "top":root.my_pos_y-(root.num_rows*0.07)}
+					multiline: False
+					on_touch_up: suggestion_text = 'bbb'
+					#on_touch_up: root.on_text(new_ing, new_ing.text)
+				Button:
+					id: add_button
+					text: 'Add'
+					color: 0,1,1,1
+					size_hint: 0.18, 0.07
+					pos_hint: {"x":root.my_pos_x+0.52, "top":root.my_pos_y-(root.num_rows*0.07)}
+					font_size: 25
+					on_release: root.add_row(new_num.text, new_unit.text ,new_ing.text)
+					
+
+
+		Button:
+			#CHARGE GINIE WITH FOOD OPENE POPUP WINDOW
+			color: 1,0,1,1
+			font_size: 25
+			size_hint: 0.3,0.1
+			text: "Add something"
+			on_release: Factory.MyPopup_qin().open()
+			pos_hint: {"left":1, "top":1}	
+
+		Button:
+			#COOK!
+			color: 0,1,0,1
+			font_size: 25
+			size_hint: 0.2,0.15
+			text: "cook!"
+			on_release: root.cook()
+			pos_hint: {"right":0.5, "top":0.2}	
+
+		Button:
+			#GO BACK HOME
+			color: 0,0.5,1,1
+			font_size: 25
+			size_hint: 0.3,0.2
+			text: "Back Home"
+			on_release: app.root.current = "main" 
+			pos_hint: {"right":1, "top":1}	
+
+
+
+<WaitScreen>:
+
+	name: "Cooking"
+	
+	FloatLayout:
+
+		Label:
+			pos_hint:{'right':0.75,'top':1  }
+			font_size: 35
+			text: "COOKING!"
+			color: 1,0.8,0,1
+			size_hint: 0.5, 0.2 
+
+		Button:
+			#GO BACK HOME
+			color: 0,0.5,1,1
+			font_size: 25
+			size_hint: 0.3,0.15
+			text: "Back Home"
+			on_release: app.root.current = "main" 
+			pos_hint: {"right":1, "top":1}	
+			font_size: 25
+
+		#image:	
+		#AsyncImage:
+			#source: 'cook_gif.gif'
+			#anim_delay:10
